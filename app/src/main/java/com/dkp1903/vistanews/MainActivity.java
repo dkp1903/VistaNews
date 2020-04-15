@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity{
         PagerAdapter adapter;
         pager = findViewById(R.id.viewPager);
         mTabLayout = findViewById(R.id.tabLayout);
-        smartStories = findViewById(R.id.smartStories);
+        smartStories = findViewById(R.id.cardView);
+
         feedsense = findViewById(R.id.feedsense);
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.nav_view);
@@ -71,7 +72,8 @@ public class MainActivity extends AppCompatActivity{
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
+            public void onTabUnselected(TabLayout.Tab tab)
+            {
 
             }
 

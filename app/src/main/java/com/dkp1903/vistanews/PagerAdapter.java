@@ -19,7 +19,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0: return new smartStoriesFragment();
+            case 0: {
+                return new smartStoriesFragment();
+            }
             case 1: return new feedsenseFragment();
             default: return null;
         }
