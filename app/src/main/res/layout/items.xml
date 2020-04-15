@@ -26,10 +26,10 @@
 
             <ImageView
                 android:id="@+id/newsImage"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/trump"
                 android:layout_alignParentLeft="true"/>
 
 
@@ -42,26 +42,26 @@
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/headline"
+                    android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="I danced to the tune of jack from the hills"
-                    android:textSize="15dp" />
+                    android:text="India Corona cases cross 10000 : Government on alert"
+                    android:textSize="25dp" />
 
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:paddingTop="10dp"
                     android:id="@+id/sentScore"
-                    android:layout_below="@id/headline"
-                    android:src="@drawable/logo" />
+                    android:layout_below="@id/title"
+                    android:src="@drawable/d" />
                 <ImageView
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:paddingTop="10dp"
-                    android:layout_below="@id/headline"
+                    android:layout_below="@id/title"
                     android:layout_toRightOf="@id/sentScore"
-                    android:src="@drawable/logo"
+                    android:src="@drawable/plus"
                     android:id="@+id/plus"/>
             </RelativeLayout>
         </RelativeLayout>

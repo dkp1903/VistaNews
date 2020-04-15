@@ -5,13 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".fragments.smartStoriesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_height="match_parent"
-        android:text="Smartstories news" />
-    <include
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/items"/>
+        android:id="@+id/recycler1" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
 </FrameLayout>

@@ -1,11 +1,14 @@
 package com.dkp1903.vistanews.fragments;
 
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +38,7 @@ public class smartStoriesFragment extends Fragment {
     final String API_KEY = "03db90899c064911aa9517883d5415bd";
     Adapter adapter;
     List<Articles> articles = new ArrayList<>();
+    String country ;
 
 
 
@@ -53,15 +57,35 @@ public class smartStoriesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        String country = getCountry();
+        country = getCountry();
         retrieveJson(country, API_KEY);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         View layoutView = inflater.inflate(R.layout.fragment_smart_stories, container, false);
-        recyclerView = layoutView.findViewById(R.id.smartStories);
-        //recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView = layoutView.findViewById(R.id.recycler1);
+        adapter = new Adapter(getActivity(), articles);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
+        new addData().execute();
+
 
         return layoutView;
+    }
+
+    private class addData extends AsyncTask<Void, Void, Void>{
+        @Override
+        protected Void doInBackground(Void... voids) {
+            retrieveJson(country, API_KEY);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            adapter.notifyDataSetChanged();
+
+        }
     }
 
     public void retrieveJson(String country, String apiKey) {
@@ -73,8 +97,7 @@ public class smartStoriesFragment extends Fragment {
                 if(response.isSuccessful() && response.body().getArticles() != null){
                     articles.clear();
                     articles = response.body().getArticles();
-                    adapter = new Adapter(getActivity(), articles);
-                    recyclerView.setAdapter(adapter);
+                    //Log.d("articles fetch", articles.isEmpty() ? "1" : "0");
                 }
             }
 

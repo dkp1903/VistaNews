@@ -58,7 +58,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            headline = itemView.findViewById(R.id.headline);
+            headline = itemView.findViewById(R.id.title);
             newsImage = itemView.findViewById(R.id.newsImage);
             sentScore = itemView.findViewById(R.id.sentScore);
             cardView = itemView.findViewById(R.id.cardView);

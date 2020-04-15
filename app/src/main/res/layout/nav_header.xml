@@ -12,5 +12,6 @@
         android:background="#000000"
         android:text="Vista News"
         android:textColor="#FFFFFF"
-        android:textSize="40dp"/>
+        android:textSize="30dp"
+        android:textStyle="italic"/>
 </LinearLayout>
