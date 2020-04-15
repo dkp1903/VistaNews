@@ -21,8 +21,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     Context context;
     List<Articles> articles;
 
-    public Adapter(Context context, List<Articles> articles)
-    {
+    public Adapter(Context context, List<Articles> articles) {
         this.context = context;
         this.articles = articles;
     }
@@ -30,7 +29,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items, parent, false);
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.items, parent, false);
         return new ViewHolder(view);
     }
 
@@ -47,23 +48,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-
         return articles.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder{
         TextView headline;
         ImageView newsImage, sentScore, plus;
         CardView cardView;
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             headline = itemView.findViewById(R.id.title);
             newsImage = itemView.findViewById(R.id.newsImage);
             sentScore = itemView.findViewById(R.id.sentScore);
             cardView = itemView.findViewById(R.id.cardView);
             plus = itemView.findViewById(R.id.plus);
-
         }
     }
 }
