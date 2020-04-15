@@ -51,6 +51,7 @@ public class smartStoriesFragment extends Fragment {
         super.onCreate(savedInstanceState);
         //setContentVie
 
+
     }
 
     @Override
@@ -58,6 +59,7 @@ public class smartStoriesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         country = getCountry();
+
         retrieveJson(country, API_KEY);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -73,9 +75,12 @@ public class smartStoriesFragment extends Fragment {
         return layoutView;
     }
 
-    private class addData extends AsyncTask<Void, Void, Void>{
+    //Creation of new thread which handles data fetching
+    private class addData extends AsyncTask<Void, Void,  Void>
+    {
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected Void doInBackground(Void... voids)
+        {
             retrieveJson(country, API_KEY);
             return null;
         }
@@ -97,7 +102,6 @@ public class smartStoriesFragment extends Fragment {
                 if(response.isSuccessful() && response.body().getArticles() != null){
                     articles.clear();
                     articles = response.body().getArticles();
-                    //Log.d("articles fetch", articles.isEmpty() ? "1" : "0");
                 }
             }
 

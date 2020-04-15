@@ -6,6 +6,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.dkp1903.vistanews.fragments.smartStoriesFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -59,8 +61,12 @@ public class MainActivity extends AppCompatActivity{
 
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
+            public void onTabSelected(TabLayout.Tab tab)
+            {
                 pager.setCurrentItem(tab.getPosition());
+                //Fragment smartStoriesFragment = new smartStoriesFragment();
+                //getSupportFragmentManager().beginTransaction()
+                 //       .replace(R.id.cardView, smartStoriesFragment, smartStoriesFragment.getClass().getSimpleName()).addToBackStack(null).commit();
                 Toast.makeText(getApplicationContext(), "Tab changed", Toast.LENGTH_SHORT).show();
             }
 
